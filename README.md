@@ -1,2 +1,2 @@
-# ratchet
+# Ratchet
 Modular transaction management
