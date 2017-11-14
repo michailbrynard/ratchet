@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "odinsplasmarifle.ratchet";
+option java_outer_classname = "RatchetProto";
+
+package ratchet;
+
+service Node {
+  rpc Signal (SignalRequest) returns (SignalReply) {}
+}
+
+message SignalRequest {
+  string data = 1;
+}
+
+message SignalReply {
+  string key = 1;
+}
+
+// protoc -I ratchet/ ratchet/ratchet.proto --go_out=plugins=grpc:ratchet
