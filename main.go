@@ -10,22 +10,35 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-type server struct{}
-
-func (s *server) Signal(ctx context.Context, in *pb.SignalRequest) (*pb.SignalReply, error) {
-	return &pb.SignalReply{Key: "123"}, nil
+type Node struct {
+	config   *Config
+	messages chan Message
 }
 
-func main() {
-	lis, err := net.Listen("tcp", ":50051")
+type Config struct {
+	Port string
+}
+
+type Message struct {
+	Type string
+}
+
+func (node *Node) Run() {
+	node.messages = make(chan Message)
+
+	lis, err := net.Listen("tcp", node.config.Port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s := grpc.NewServer()
-	pb.RegisterNodeServer(s, &server{})
-	reflection.Register(s)
-	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+	n := grpc.NewServer()
+	pb.RegisterNodeServer(n, node)
+	reflection.Register(n)
+	if err := n.Serve(lis); err != nil {
+		log.Fatalf("failed to run node: %v", err)
 	}
+}
+
+func (node *Node) Signal(ctx context.Context, in *pb.SignalRequest) (*pb.SignalReply, error) {
+	return &pb.SignalReply{Key: "hello"}, nil
 }
