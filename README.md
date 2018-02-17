@@ -1,2 +1,7 @@
 # Ratchet
-Modular transaction management
+
+Modular signal management
+
+```bash
+protoc -I ratchet/ ratchet/ratchet.proto --go_out=plugins=grpc:ratchet
+```

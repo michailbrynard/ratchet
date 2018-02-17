@@ -8,8 +8,11 @@ It is generated from these files:
 	ratchet.proto
 
 It has these top-level messages:
-	SignalRequest
-	SignalReply
+	CreateTransactionRequest
+	ListTransactionsRequest
+	GetTransactionRequest
+	UpdateTransactionRequest
+	Transaction
 */
 package ratchet
 
@@ -33,41 +36,68 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type SignalRequest struct {
-	Data string `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+type CreateTransactionRequest struct {
 }
 
-func (m *SignalRequest) Reset()                    { *m = SignalRequest{} }
-func (m *SignalRequest) String() string            { return proto.CompactTextString(m) }
-func (*SignalRequest) ProtoMessage()               {}
-func (*SignalRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (m *CreateTransactionRequest) Reset()                    { *m = CreateTransactionRequest{} }
+func (m *CreateTransactionRequest) String() string            { return proto.CompactTextString(m) }
+func (*CreateTransactionRequest) ProtoMessage()               {}
+func (*CreateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
-func (m *SignalRequest) GetData() string {
+type ListTransactionsRequest struct {
+}
+
+func (m *ListTransactionsRequest) Reset()                    { *m = ListTransactionsRequest{} }
+func (m *ListTransactionsRequest) String() string            { return proto.CompactTextString(m) }
+func (*ListTransactionsRequest) ProtoMessage()               {}
+func (*ListTransactionsRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+
+type GetTransactionRequest struct {
+}
+
+func (m *GetTransactionRequest) Reset()                    { *m = GetTransactionRequest{} }
+func (m *GetTransactionRequest) String() string            { return proto.CompactTextString(m) }
+func (*GetTransactionRequest) ProtoMessage()               {}
+func (*GetTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+
+type UpdateTransactionRequest struct {
+}
+
+func (m *UpdateTransactionRequest) Reset()                    { *m = UpdateTransactionRequest{} }
+func (m *UpdateTransactionRequest) String() string            { return proto.CompactTextString(m) }
+func (*UpdateTransactionRequest) ProtoMessage()               {}
+func (*UpdateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+
+type Transaction struct {
+	Type   string `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
+	Amount int64  `protobuf:"varint,2,opt,name=amount" json:"amount,omitempty"`
+}
+
+func (m *Transaction) Reset()                    { *m = Transaction{} }
+func (m *Transaction) String() string            { return proto.CompactTextString(m) }
+func (*Transaction) ProtoMessage()               {}
+func (*Transaction) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+
+func (m *Transaction) GetType() string {
 	if m != nil {
-		return m.Data
+		return m.Type
 	}
 	return ""
 }
 
-type SignalReply struct {
-	Key string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
-}
-
-func (m *SignalReply) Reset()                    { *m = SignalReply{} }
-func (m *SignalReply) String() string            { return proto.CompactTextString(m) }
-func (*SignalReply) ProtoMessage()               {}
-func (*SignalReply) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
-
-func (m *SignalReply) GetKey() string {
+func (m *Transaction) GetAmount() int64 {
 	if m != nil {
-		return m.Key
+		return m.Amount
 	}
-	return ""
+	return 0
 }
 
 func init() {
-	proto.RegisterType((*SignalRequest)(nil), "ratchet.SignalRequest")
-	proto.RegisterType((*SignalReply)(nil), "ratchet.SignalReply")
+	proto.RegisterType((*CreateTransactionRequest)(nil), "ratchet.CreateTransactionRequest")
+	proto.RegisterType((*ListTransactionsRequest)(nil), "ratchet.ListTransactionsRequest")
+	proto.RegisterType((*GetTransactionRequest)(nil), "ratchet.GetTransactionRequest")
+	proto.RegisterType((*UpdateTransactionRequest)(nil), "ratchet.UpdateTransactionRequest")
+	proto.RegisterType((*Transaction)(nil), "ratchet.Transaction")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -78,83 +108,215 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for Node service
+// Client API for Ratchet service
 
-type NodeClient interface {
-	Signal(ctx context.Context, in *SignalRequest, opts ...grpc.CallOption) (*SignalReply, error)
+type RatchetClient interface {
+	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
+	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (Ratchet_ListTransactionsClient, error)
+	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
+	UpdateTransaction(ctx context.Context, in *UpdateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 }
 
-type nodeClient struct {
+type ratchetClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewNodeClient(cc *grpc.ClientConn) NodeClient {
-	return &nodeClient{cc}
+func NewRatchetClient(cc *grpc.ClientConn) RatchetClient {
+	return &ratchetClient{cc}
 }
 
-func (c *nodeClient) Signal(ctx context.Context, in *SignalRequest, opts ...grpc.CallOption) (*SignalReply, error) {
-	out := new(SignalReply)
-	err := grpc.Invoke(ctx, "/ratchet.Node/Signal", in, out, c.cc, opts...)
+func (c *ratchetClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error) {
+	out := new(Transaction)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/CreateTransaction", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for Node service
-
-type NodeServer interface {
-	Signal(context.Context, *SignalRequest) (*SignalReply, error)
+func (c *ratchetClient) ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (Ratchet_ListTransactionsClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[0], c.cc, "/ratchet.Ratchet/ListTransactions", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &ratchetListTransactionsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func RegisterNodeServer(s *grpc.Server, srv NodeServer) {
-	s.RegisterService(&_Node_serviceDesc, srv)
+type Ratchet_ListTransactionsClient interface {
+	Recv() (*Transaction, error)
+	grpc.ClientStream
 }
 
-func _Node_Signal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignalRequest)
+type ratchetListTransactionsClient struct {
+	grpc.ClientStream
+}
+
+func (x *ratchetListTransactionsClient) Recv() (*Transaction, error) {
+	m := new(Transaction)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *ratchetClient) GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error) {
+	out := new(Transaction)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/GetTransaction", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) UpdateTransaction(ctx context.Context, in *UpdateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error) {
+	out := new(Transaction)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/UpdateTransaction", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// Server API for Ratchet service
+
+type RatchetServer interface {
+	CreateTransaction(context.Context, *CreateTransactionRequest) (*Transaction, error)
+	ListTransactions(*ListTransactionsRequest, Ratchet_ListTransactionsServer) error
+	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
+	UpdateTransaction(context.Context, *UpdateTransactionRequest) (*Transaction, error)
+}
+
+func RegisterRatchetServer(s *grpc.Server, srv RatchetServer) {
+	s.RegisterService(&_Ratchet_serviceDesc, srv)
+}
+
+func _Ratchet_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NodeServer).Signal(ctx, in)
+		return srv.(RatchetServer).CreateTransaction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ratchet.Node/Signal",
+		FullMethod: "/ratchet.Ratchet/CreateTransaction",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NodeServer).Signal(ctx, req.(*SignalRequest))
+		return srv.(RatchetServer).CreateTransaction(ctx, req.(*CreateTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Node_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "ratchet.Node",
-	HandlerType: (*NodeServer)(nil),
+func _Ratchet_ListTransactions_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ListTransactionsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RatchetServer).ListTransactions(m, &ratchetListTransactionsServer{stream})
+}
+
+type Ratchet_ListTransactionsServer interface {
+	Send(*Transaction) error
+	grpc.ServerStream
+}
+
+type ratchetListTransactionsServer struct {
+	grpc.ServerStream
+}
+
+func (x *ratchetListTransactionsServer) Send(m *Transaction) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Ratchet_GetTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).GetTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/GetTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).GetTransaction(ctx, req.(*GetTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_UpdateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).UpdateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/UpdateTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).UpdateTransaction(ctx, req.(*UpdateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Ratchet_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "ratchet.Ratchet",
+	HandlerType: (*RatchetServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Signal",
-			Handler:    _Node_Signal_Handler,
+			MethodName: "CreateTransaction",
+			Handler:    _Ratchet_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "GetTransaction",
+			Handler:    _Ratchet_GetTransaction_Handler,
+		},
+		{
+			MethodName: "UpdateTransaction",
+			Handler:    _Ratchet_UpdateTransaction_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "ListTransactions",
+			Handler:       _Ratchet_ListTransactions_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "ratchet.proto",
 }
 
 func init() { proto.RegisterFile("ratchet.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 164 bytes of a gzipped FileDescriptorProto
+	// 253 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2d, 0x4a, 0x2c, 0x49,
-	0xce, 0x48, 0x2d, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x87, 0x72, 0x95, 0x94, 0xb9,
-	0x78, 0x83, 0x33, 0xd3, 0xf3, 0x12, 0x73, 0x82, 0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0x84, 0x84,
-	0xb8, 0x58, 0x52, 0x12, 0x4b, 0x12, 0x25, 0x18, 0x15, 0x18, 0x35, 0x38, 0x83, 0xc0, 0x6c, 0x25,
-	0x79, 0x2e, 0x6e, 0x98, 0xa2, 0x82, 0x9c, 0x4a, 0x21, 0x01, 0x2e, 0xe6, 0xec, 0xd4, 0x4a, 0xa8,
-	0x0a, 0x10, 0xd3, 0xc8, 0x81, 0x8b, 0xc5, 0x2f, 0x3f, 0x25, 0x55, 0xc8, 0x82, 0x8b, 0x0d, 0xa2,
-	0x50, 0x48, 0x4c, 0x0f, 0x66, 0x21, 0x8a, 0xf1, 0x52, 0x22, 0x18, 0xe2, 0x05, 0x39, 0x95, 0x4a,
-	0x0c, 0x4e, 0x5a, 0x5c, 0x12, 0xf9, 0x29, 0x99, 0x79, 0xc5, 0x05, 0x39, 0x89, 0xc5, 0xb9, 0x89,
-	0x45, 0x99, 0x69, 0x39, 0xa9, 0x30, 0x95, 0x4e, 0x3c, 0x41, 0x10, 0x46, 0x00, 0xc8, 0xe9, 0x01,
-	0x8c, 0x49, 0x6c, 0x60, 0x3f, 0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x75, 0xd2, 0x71, 0x36,
-	0xd4, 0x00, 0x00, 0x00,
+	0xce, 0x48, 0x2d, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x87, 0x72, 0x95, 0xa4, 0xb8,
+	0x24, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x52, 0x43, 0x8a, 0x12, 0xf3, 0x8a, 0x13, 0x93, 0x4b, 0x32,
+	0xf3, 0xf3, 0x82, 0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0x94, 0x24, 0xb9, 0xc4, 0x7d, 0x32, 0x8b,
+	0x4b, 0x90, 0x64, 0x8a, 0x61, 0x52, 0xe2, 0x5c, 0xa2, 0xee, 0xa9, 0x25, 0x58, 0xf4, 0x48, 0x71,
+	0x49, 0x84, 0x16, 0xa4, 0x60, 0x37, 0xcf, 0x92, 0x8b, 0x1b, 0x49, 0x54, 0x48, 0x88, 0x8b, 0xa5,
+	0xa4, 0xb2, 0x20, 0x55, 0x82, 0x51, 0x81, 0x51, 0x83, 0x33, 0x08, 0xcc, 0x16, 0x12, 0xe3, 0x62,
+	0x4b, 0xcc, 0xcd, 0x2f, 0xcd, 0x2b, 0x91, 0x60, 0x52, 0x60, 0xd4, 0x60, 0x0e, 0x82, 0xf2, 0x8c,
+	0x0e, 0x33, 0x71, 0xb1, 0x07, 0x41, 0x9c, 0x2c, 0xe4, 0xc7, 0x25, 0x88, 0xe1, 0x64, 0x21, 0x45,
+	0x3d, 0x98, 0x07, 0x71, 0x79, 0x47, 0x4a, 0x04, 0xae, 0x04, 0x49, 0x52, 0x89, 0x41, 0xc8, 0x8f,
+	0x4b, 0x00, 0xdd, 0x9b, 0x42, 0x0a, 0x70, 0xb5, 0x38, 0x42, 0x00, 0x97, 0x69, 0x06, 0x8c, 0x42,
+	0x1e, 0x5c, 0x7c, 0xa8, 0x61, 0x23, 0x24, 0x07, 0x57, 0x8b, 0x35, 0xd0, 0xf0, 0xb8, 0x4c, 0x10,
+	0x23, 0x30, 0x91, 0x7c, 0x8a, 0x2b, 0xa0, 0x71, 0x99, 0xe7, 0xa4, 0xc5, 0x25, 0x91, 0x9f, 0x92,
+	0x99, 0x57, 0x5c, 0x90, 0x93, 0x58, 0x9c, 0x9b, 0x58, 0x94, 0x99, 0x96, 0x93, 0x0a, 0x53, 0xe9,
+	0xc4, 0x03, 0x0d, 0xde, 0x00, 0x50, 0xfa, 0x08, 0x60, 0x4c, 0x62, 0x03, 0x27, 0x14, 0x63, 0x40,
+	0x00, 0x00, 0x00, 0xff, 0xff, 0xad, 0x6c, 0x2d, 0x00, 0x39, 0x02, 0x00, 0x00,
 }
