@@ -7,6 +7,38 @@ option java_outer_classname = "RatchetProto";
 package ratchet;
 
 service Ratchet {
+	// Ledgers
+
+	rpc CreateLedger (CreateLedgerRequest) returns (Ledger) {}
+
+	rpc ListLedgers (ListLedgersRequest) returns (stream Ledger) {}
+
+	rpc GetLedger (GetLedgerRequest) returns (Ledger) {}
+
+	rpc UpdateLedger (UpdateLedgerRequest) returns (Ledger) {}
+
+	// Assets
+
+	rpc CreateAsset (CreateAssetRequest) returns (Asset) {}
+
+	rpc ListAssets (ListAssetsRequest) returns (stream Asset) {}
+
+	rpc GetAsset (GetAssetRequest) returns (Asset) {}
+
+	rpc UpdateAsset (UpdateAssetRequest) returns (Asset) {}
+
+	// Accounts
+
+	rpc CreateAccount (CreateAccountRequest) returns (Account) {}
+
+	rpc ListAccounts (ListAccountsRequest) returns (stream Account) {}
+
+	rpc GetAccount (GetAccountRequest) returns (Account) {}
+
+	rpc UpdateAccount (UpdateAccountRequest) returns (Account) {}
+
+	// Transactions
+
 	rpc CreateTransaction (CreateTransactionRequest) returns (Transaction) {}
 
 	rpc ListTransactions (ListTransactionsRequest) returns (stream Transaction) {}
@@ -15,6 +47,50 @@ service Ratchet {
 
 	rpc UpdateTransaction (UpdateTransactionRequest) returns (Transaction) {}
 }
+
+// Ledgers
+
+message CreateLedgerRequest {}
+
+message ListLedgersRequest {}
+
+message GetLedgerRequest {}
+
+message UpdateLedgerRequest {}
+
+message Ledger {
+  string id = 1;
+}
+
+// Assets
+
+message CreateAssetRequest {}
+
+message ListAssetsRequest {}
+
+message GetAssetRequest {}
+
+message UpdateAssetRequest {}
+
+message Asset {
+  string id = 1;
+}
+
+// Accounts
+
+message CreateAccountRequest {}
+
+message ListAccountsRequest {}
+
+message GetAccountRequest {}
+
+message UpdateAccountRequest {}
+
+message Account {
+  string id = 1;
+}
+
+// Transactions
 
 message CreateTransactionRequest {}
 
@@ -25,6 +101,5 @@ message GetTransactionRequest {}
 message UpdateTransactionRequest {}
 
 message Transaction {
-  string type = 1;
-  int64 amount = 2;
+  string id = 1;
 }

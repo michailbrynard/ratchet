@@ -8,6 +8,21 @@ It is generated from these files:
 	ratchet.proto
 
 It has these top-level messages:
+	CreateLedgerRequest
+	ListLedgersRequest
+	GetLedgerRequest
+	UpdateLedgerRequest
+	Ledger
+	CreateAssetRequest
+	ListAssetsRequest
+	GetAssetRequest
+	UpdateAssetRequest
+	Asset
+	CreateAccountRequest
+	ListAccountsRequest
+	GetAccountRequest
+	UpdateAccountRequest
+	Account
 	CreateTransactionRequest
 	ListTransactionsRequest
 	GetTransactionRequest
@@ -36,13 +51,157 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+type CreateLedgerRequest struct {
+}
+
+func (m *CreateLedgerRequest) Reset()                    { *m = CreateLedgerRequest{} }
+func (m *CreateLedgerRequest) String() string            { return proto.CompactTextString(m) }
+func (*CreateLedgerRequest) ProtoMessage()               {}
+func (*CreateLedgerRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+
+type ListLedgersRequest struct {
+}
+
+func (m *ListLedgersRequest) Reset()                    { *m = ListLedgersRequest{} }
+func (m *ListLedgersRequest) String() string            { return proto.CompactTextString(m) }
+func (*ListLedgersRequest) ProtoMessage()               {}
+func (*ListLedgersRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+
+type GetLedgerRequest struct {
+}
+
+func (m *GetLedgerRequest) Reset()                    { *m = GetLedgerRequest{} }
+func (m *GetLedgerRequest) String() string            { return proto.CompactTextString(m) }
+func (*GetLedgerRequest) ProtoMessage()               {}
+func (*GetLedgerRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+
+type UpdateLedgerRequest struct {
+}
+
+func (m *UpdateLedgerRequest) Reset()                    { *m = UpdateLedgerRequest{} }
+func (m *UpdateLedgerRequest) String() string            { return proto.CompactTextString(m) }
+func (*UpdateLedgerRequest) ProtoMessage()               {}
+func (*UpdateLedgerRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+
+type Ledger struct {
+	Id string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+}
+
+func (m *Ledger) Reset()                    { *m = Ledger{} }
+func (m *Ledger) String() string            { return proto.CompactTextString(m) }
+func (*Ledger) ProtoMessage()               {}
+func (*Ledger) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+
+func (m *Ledger) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type CreateAssetRequest struct {
+}
+
+func (m *CreateAssetRequest) Reset()                    { *m = CreateAssetRequest{} }
+func (m *CreateAssetRequest) String() string            { return proto.CompactTextString(m) }
+func (*CreateAssetRequest) ProtoMessage()               {}
+func (*CreateAssetRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+
+type ListAssetsRequest struct {
+}
+
+func (m *ListAssetsRequest) Reset()                    { *m = ListAssetsRequest{} }
+func (m *ListAssetsRequest) String() string            { return proto.CompactTextString(m) }
+func (*ListAssetsRequest) ProtoMessage()               {}
+func (*ListAssetsRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+
+type GetAssetRequest struct {
+}
+
+func (m *GetAssetRequest) Reset()                    { *m = GetAssetRequest{} }
+func (m *GetAssetRequest) String() string            { return proto.CompactTextString(m) }
+func (*GetAssetRequest) ProtoMessage()               {}
+func (*GetAssetRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+
+type UpdateAssetRequest struct {
+}
+
+func (m *UpdateAssetRequest) Reset()                    { *m = UpdateAssetRequest{} }
+func (m *UpdateAssetRequest) String() string            { return proto.CompactTextString(m) }
+func (*UpdateAssetRequest) ProtoMessage()               {}
+func (*UpdateAssetRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+
+type Asset struct {
+	Id string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+}
+
+func (m *Asset) Reset()                    { *m = Asset{} }
+func (m *Asset) String() string            { return proto.CompactTextString(m) }
+func (*Asset) ProtoMessage()               {}
+func (*Asset) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+
+func (m *Asset) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type CreateAccountRequest struct {
+}
+
+func (m *CreateAccountRequest) Reset()                    { *m = CreateAccountRequest{} }
+func (m *CreateAccountRequest) String() string            { return proto.CompactTextString(m) }
+func (*CreateAccountRequest) ProtoMessage()               {}
+func (*CreateAccountRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{10} }
+
+type ListAccountsRequest struct {
+}
+
+func (m *ListAccountsRequest) Reset()                    { *m = ListAccountsRequest{} }
+func (m *ListAccountsRequest) String() string            { return proto.CompactTextString(m) }
+func (*ListAccountsRequest) ProtoMessage()               {}
+func (*ListAccountsRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
+
+type GetAccountRequest struct {
+}
+
+func (m *GetAccountRequest) Reset()                    { *m = GetAccountRequest{} }
+func (m *GetAccountRequest) String() string            { return proto.CompactTextString(m) }
+func (*GetAccountRequest) ProtoMessage()               {}
+func (*GetAccountRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{12} }
+
+type UpdateAccountRequest struct {
+}
+
+func (m *UpdateAccountRequest) Reset()                    { *m = UpdateAccountRequest{} }
+func (m *UpdateAccountRequest) String() string            { return proto.CompactTextString(m) }
+func (*UpdateAccountRequest) ProtoMessage()               {}
+func (*UpdateAccountRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{13} }
+
+type Account struct {
+	Id string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+}
+
+func (m *Account) Reset()                    { *m = Account{} }
+func (m *Account) String() string            { return proto.CompactTextString(m) }
+func (*Account) ProtoMessage()               {}
+func (*Account) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{14} }
+
+func (m *Account) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
 type CreateTransactionRequest struct {
 }
 
 func (m *CreateTransactionRequest) Reset()                    { *m = CreateTransactionRequest{} }
 func (m *CreateTransactionRequest) String() string            { return proto.CompactTextString(m) }
 func (*CreateTransactionRequest) ProtoMessage()               {}
-func (*CreateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*CreateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
 
 type ListTransactionsRequest struct {
 }
@@ -50,7 +209,7 @@ type ListTransactionsRequest struct {
 func (m *ListTransactionsRequest) Reset()                    { *m = ListTransactionsRequest{} }
 func (m *ListTransactionsRequest) String() string            { return proto.CompactTextString(m) }
 func (*ListTransactionsRequest) ProtoMessage()               {}
-func (*ListTransactionsRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*ListTransactionsRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{16} }
 
 type GetTransactionRequest struct {
 }
@@ -58,7 +217,7 @@ type GetTransactionRequest struct {
 func (m *GetTransactionRequest) Reset()                    { *m = GetTransactionRequest{} }
 func (m *GetTransactionRequest) String() string            { return proto.CompactTextString(m) }
 func (*GetTransactionRequest) ProtoMessage()               {}
-func (*GetTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (*GetTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{17} }
 
 type UpdateTransactionRequest struct {
 }
@@ -66,33 +225,40 @@ type UpdateTransactionRequest struct {
 func (m *UpdateTransactionRequest) Reset()                    { *m = UpdateTransactionRequest{} }
 func (m *UpdateTransactionRequest) String() string            { return proto.CompactTextString(m) }
 func (*UpdateTransactionRequest) ProtoMessage()               {}
-func (*UpdateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (*UpdateTransactionRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{18} }
 
 type Transaction struct {
-	Type   string `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
-	Amount int64  `protobuf:"varint,2,opt,name=amount" json:"amount,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
 }
 
 func (m *Transaction) Reset()                    { *m = Transaction{} }
 func (m *Transaction) String() string            { return proto.CompactTextString(m) }
 func (*Transaction) ProtoMessage()               {}
-func (*Transaction) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (*Transaction) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
 
-func (m *Transaction) GetType() string {
+func (m *Transaction) GetId() string {
 	if m != nil {
-		return m.Type
+		return m.Id
 	}
 	return ""
 }
 
-func (m *Transaction) GetAmount() int64 {
-	if m != nil {
-		return m.Amount
-	}
-	return 0
-}
-
 func init() {
+	proto.RegisterType((*CreateLedgerRequest)(nil), "ratchet.CreateLedgerRequest")
+	proto.RegisterType((*ListLedgersRequest)(nil), "ratchet.ListLedgersRequest")
+	proto.RegisterType((*GetLedgerRequest)(nil), "ratchet.GetLedgerRequest")
+	proto.RegisterType((*UpdateLedgerRequest)(nil), "ratchet.UpdateLedgerRequest")
+	proto.RegisterType((*Ledger)(nil), "ratchet.Ledger")
+	proto.RegisterType((*CreateAssetRequest)(nil), "ratchet.CreateAssetRequest")
+	proto.RegisterType((*ListAssetsRequest)(nil), "ratchet.ListAssetsRequest")
+	proto.RegisterType((*GetAssetRequest)(nil), "ratchet.GetAssetRequest")
+	proto.RegisterType((*UpdateAssetRequest)(nil), "ratchet.UpdateAssetRequest")
+	proto.RegisterType((*Asset)(nil), "ratchet.Asset")
+	proto.RegisterType((*CreateAccountRequest)(nil), "ratchet.CreateAccountRequest")
+	proto.RegisterType((*ListAccountsRequest)(nil), "ratchet.ListAccountsRequest")
+	proto.RegisterType((*GetAccountRequest)(nil), "ratchet.GetAccountRequest")
+	proto.RegisterType((*UpdateAccountRequest)(nil), "ratchet.UpdateAccountRequest")
+	proto.RegisterType((*Account)(nil), "ratchet.Account")
 	proto.RegisterType((*CreateTransactionRequest)(nil), "ratchet.CreateTransactionRequest")
 	proto.RegisterType((*ListTransactionsRequest)(nil), "ratchet.ListTransactionsRequest")
 	proto.RegisterType((*GetTransactionRequest)(nil), "ratchet.GetTransactionRequest")
@@ -111,6 +277,18 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for Ratchet service
 
 type RatchetClient interface {
+	CreateLedger(ctx context.Context, in *CreateLedgerRequest, opts ...grpc.CallOption) (*Ledger, error)
+	ListLedgers(ctx context.Context, in *ListLedgersRequest, opts ...grpc.CallOption) (Ratchet_ListLedgersClient, error)
+	GetLedger(ctx context.Context, in *GetLedgerRequest, opts ...grpc.CallOption) (*Ledger, error)
+	UpdateLedger(ctx context.Context, in *UpdateLedgerRequest, opts ...grpc.CallOption) (*Ledger, error)
+	CreateAsset(ctx context.Context, in *CreateAssetRequest, opts ...grpc.CallOption) (*Asset, error)
+	ListAssets(ctx context.Context, in *ListAssetsRequest, opts ...grpc.CallOption) (Ratchet_ListAssetsClient, error)
+	GetAsset(ctx context.Context, in *GetAssetRequest, opts ...grpc.CallOption) (*Asset, error)
+	UpdateAsset(ctx context.Context, in *UpdateAssetRequest, opts ...grpc.CallOption) (*Asset, error)
+	CreateAccount(ctx context.Context, in *CreateAccountRequest, opts ...grpc.CallOption) (*Account, error)
+	ListAccounts(ctx context.Context, in *ListAccountsRequest, opts ...grpc.CallOption) (Ratchet_ListAccountsClient, error)
+	GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*Account, error)
+	UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*Account, error)
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (Ratchet_ListTransactionsClient, error)
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
@@ -125,6 +303,183 @@ func NewRatchetClient(cc *grpc.ClientConn) RatchetClient {
 	return &ratchetClient{cc}
 }
 
+func (c *ratchetClient) CreateLedger(ctx context.Context, in *CreateLedgerRequest, opts ...grpc.CallOption) (*Ledger, error) {
+	out := new(Ledger)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/CreateLedger", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) ListLedgers(ctx context.Context, in *ListLedgersRequest, opts ...grpc.CallOption) (Ratchet_ListLedgersClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[0], c.cc, "/ratchet.Ratchet/ListLedgers", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &ratchetListLedgersClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Ratchet_ListLedgersClient interface {
+	Recv() (*Ledger, error)
+	grpc.ClientStream
+}
+
+type ratchetListLedgersClient struct {
+	grpc.ClientStream
+}
+
+func (x *ratchetListLedgersClient) Recv() (*Ledger, error) {
+	m := new(Ledger)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *ratchetClient) GetLedger(ctx context.Context, in *GetLedgerRequest, opts ...grpc.CallOption) (*Ledger, error) {
+	out := new(Ledger)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/GetLedger", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) UpdateLedger(ctx context.Context, in *UpdateLedgerRequest, opts ...grpc.CallOption) (*Ledger, error) {
+	out := new(Ledger)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/UpdateLedger", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) CreateAsset(ctx context.Context, in *CreateAssetRequest, opts ...grpc.CallOption) (*Asset, error) {
+	out := new(Asset)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/CreateAsset", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) ListAssets(ctx context.Context, in *ListAssetsRequest, opts ...grpc.CallOption) (Ratchet_ListAssetsClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[1], c.cc, "/ratchet.Ratchet/ListAssets", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &ratchetListAssetsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Ratchet_ListAssetsClient interface {
+	Recv() (*Asset, error)
+	grpc.ClientStream
+}
+
+type ratchetListAssetsClient struct {
+	grpc.ClientStream
+}
+
+func (x *ratchetListAssetsClient) Recv() (*Asset, error) {
+	m := new(Asset)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *ratchetClient) GetAsset(ctx context.Context, in *GetAssetRequest, opts ...grpc.CallOption) (*Asset, error) {
+	out := new(Asset)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/GetAsset", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) UpdateAsset(ctx context.Context, in *UpdateAssetRequest, opts ...grpc.CallOption) (*Asset, error) {
+	out := new(Asset)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/UpdateAsset", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) CreateAccount(ctx context.Context, in *CreateAccountRequest, opts ...grpc.CallOption) (*Account, error) {
+	out := new(Account)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/CreateAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) ListAccounts(ctx context.Context, in *ListAccountsRequest, opts ...grpc.CallOption) (Ratchet_ListAccountsClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[2], c.cc, "/ratchet.Ratchet/ListAccounts", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &ratchetListAccountsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Ratchet_ListAccountsClient interface {
+	Recv() (*Account, error)
+	grpc.ClientStream
+}
+
+type ratchetListAccountsClient struct {
+	grpc.ClientStream
+}
+
+func (x *ratchetListAccountsClient) Recv() (*Account, error) {
+	m := new(Account)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *ratchetClient) GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*Account, error) {
+	out := new(Account)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/GetAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ratchetClient) UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*Account, error) {
+	out := new(Account)
+	err := grpc.Invoke(ctx, "/ratchet.Ratchet/UpdateAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ratchetClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error) {
 	out := new(Transaction)
 	err := grpc.Invoke(ctx, "/ratchet.Ratchet/CreateTransaction", in, out, c.cc, opts...)
@@ -135,7 +490,7 @@ func (c *ratchetClient) CreateTransaction(ctx context.Context, in *CreateTransac
 }
 
 func (c *ratchetClient) ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (Ratchet_ListTransactionsClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[0], c.cc, "/ratchet.Ratchet/ListTransactions", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_Ratchet_serviceDesc.Streams[3], c.cc, "/ratchet.Ratchet/ListTransactions", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -187,6 +542,18 @@ func (c *ratchetClient) UpdateTransaction(ctx context.Context, in *UpdateTransac
 // Server API for Ratchet service
 
 type RatchetServer interface {
+	CreateLedger(context.Context, *CreateLedgerRequest) (*Ledger, error)
+	ListLedgers(*ListLedgersRequest, Ratchet_ListLedgersServer) error
+	GetLedger(context.Context, *GetLedgerRequest) (*Ledger, error)
+	UpdateLedger(context.Context, *UpdateLedgerRequest) (*Ledger, error)
+	CreateAsset(context.Context, *CreateAssetRequest) (*Asset, error)
+	ListAssets(*ListAssetsRequest, Ratchet_ListAssetsServer) error
+	GetAsset(context.Context, *GetAssetRequest) (*Asset, error)
+	UpdateAsset(context.Context, *UpdateAssetRequest) (*Asset, error)
+	CreateAccount(context.Context, *CreateAccountRequest) (*Account, error)
+	ListAccounts(*ListAccountsRequest, Ratchet_ListAccountsServer) error
+	GetAccount(context.Context, *GetAccountRequest) (*Account, error)
+	UpdateAccount(context.Context, *UpdateAccountRequest) (*Account, error)
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*Transaction, error)
 	ListTransactions(*ListTransactionsRequest, Ratchet_ListTransactionsServer) error
 	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
@@ -195,6 +562,231 @@ type RatchetServer interface {
 
 func RegisterRatchetServer(s *grpc.Server, srv RatchetServer) {
 	s.RegisterService(&_Ratchet_serviceDesc, srv)
+}
+
+func _Ratchet_CreateLedger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateLedgerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).CreateLedger(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/CreateLedger",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).CreateLedger(ctx, req.(*CreateLedgerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_ListLedgers_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ListLedgersRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RatchetServer).ListLedgers(m, &ratchetListLedgersServer{stream})
+}
+
+type Ratchet_ListLedgersServer interface {
+	Send(*Ledger) error
+	grpc.ServerStream
+}
+
+type ratchetListLedgersServer struct {
+	grpc.ServerStream
+}
+
+func (x *ratchetListLedgersServer) Send(m *Ledger) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Ratchet_GetLedger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLedgerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).GetLedger(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/GetLedger",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).GetLedger(ctx, req.(*GetLedgerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_UpdateLedger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateLedgerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).UpdateLedger(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/UpdateLedger",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).UpdateLedger(ctx, req.(*UpdateLedgerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_CreateAsset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAssetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).CreateAsset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/CreateAsset",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).CreateAsset(ctx, req.(*CreateAssetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_ListAssets_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ListAssetsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RatchetServer).ListAssets(m, &ratchetListAssetsServer{stream})
+}
+
+type Ratchet_ListAssetsServer interface {
+	Send(*Asset) error
+	grpc.ServerStream
+}
+
+type ratchetListAssetsServer struct {
+	grpc.ServerStream
+}
+
+func (x *ratchetListAssetsServer) Send(m *Asset) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Ratchet_GetAsset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).GetAsset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/GetAsset",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).GetAsset(ctx, req.(*GetAssetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_UpdateAsset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAssetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).UpdateAsset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/UpdateAsset",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).UpdateAsset(ctx, req.(*UpdateAssetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_CreateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).CreateAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/CreateAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).CreateAccount(ctx, req.(*CreateAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_ListAccounts_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ListAccountsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RatchetServer).ListAccounts(m, &ratchetListAccountsServer{stream})
+}
+
+type Ratchet_ListAccountsServer interface {
+	Send(*Account) error
+	grpc.ServerStream
+}
+
+type ratchetListAccountsServer struct {
+	grpc.ServerStream
+}
+
+func (x *ratchetListAccountsServer) Send(m *Account) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Ratchet_GetAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).GetAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/GetAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).GetAccount(ctx, req.(*GetAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ratchet_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RatchetServer).UpdateAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ratchet.Ratchet/UpdateAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RatchetServer).UpdateAccount(ctx, req.(*UpdateAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Ratchet_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -277,6 +869,42 @@ var _Ratchet_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*RatchetServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "CreateLedger",
+			Handler:    _Ratchet_CreateLedger_Handler,
+		},
+		{
+			MethodName: "GetLedger",
+			Handler:    _Ratchet_GetLedger_Handler,
+		},
+		{
+			MethodName: "UpdateLedger",
+			Handler:    _Ratchet_UpdateLedger_Handler,
+		},
+		{
+			MethodName: "CreateAsset",
+			Handler:    _Ratchet_CreateAsset_Handler,
+		},
+		{
+			MethodName: "GetAsset",
+			Handler:    _Ratchet_GetAsset_Handler,
+		},
+		{
+			MethodName: "UpdateAsset",
+			Handler:    _Ratchet_UpdateAsset_Handler,
+		},
+		{
+			MethodName: "CreateAccount",
+			Handler:    _Ratchet_CreateAccount_Handler,
+		},
+		{
+			MethodName: "GetAccount",
+			Handler:    _Ratchet_GetAccount_Handler,
+		},
+		{
+			MethodName: "UpdateAccount",
+			Handler:    _Ratchet_UpdateAccount_Handler,
+		},
+		{
 			MethodName: "CreateTransaction",
 			Handler:    _Ratchet_CreateTransaction_Handler,
 		},
@@ -291,6 +919,21 @@ var _Ratchet_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams: []grpc.StreamDesc{
 		{
+			StreamName:    "ListLedgers",
+			Handler:       _Ratchet_ListLedgers_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "ListAssets",
+			Handler:       _Ratchet_ListAssets_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "ListAccounts",
+			Handler:       _Ratchet_ListAccounts_Handler,
+			ServerStreams: true,
+		},
+		{
 			StreamName:    "ListTransactions",
 			Handler:       _Ratchet_ListTransactions_Handler,
 			ServerStreams: true,
@@ -302,21 +945,37 @@ var _Ratchet_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("ratchet.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 253 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2d, 0x4a, 0x2c, 0x49,
-	0xce, 0x48, 0x2d, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x87, 0x72, 0x95, 0xa4, 0xb8,
-	0x24, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x52, 0x43, 0x8a, 0x12, 0xf3, 0x8a, 0x13, 0x93, 0x4b, 0x32,
-	0xf3, 0xf3, 0x82, 0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0x94, 0x24, 0xb9, 0xc4, 0x7d, 0x32, 0x8b,
-	0x4b, 0x90, 0x64, 0x8a, 0x61, 0x52, 0xe2, 0x5c, 0xa2, 0xee, 0xa9, 0x25, 0x58, 0xf4, 0x48, 0x71,
-	0x49, 0x84, 0x16, 0xa4, 0x60, 0x37, 0xcf, 0x92, 0x8b, 0x1b, 0x49, 0x54, 0x48, 0x88, 0x8b, 0xa5,
-	0xa4, 0xb2, 0x20, 0x55, 0x82, 0x51, 0x81, 0x51, 0x83, 0x33, 0x08, 0xcc, 0x16, 0x12, 0xe3, 0x62,
-	0x4b, 0xcc, 0xcd, 0x2f, 0xcd, 0x2b, 0x91, 0x60, 0x52, 0x60, 0xd4, 0x60, 0x0e, 0x82, 0xf2, 0x8c,
-	0x0e, 0x33, 0x71, 0xb1, 0x07, 0x41, 0x9c, 0x2c, 0xe4, 0xc7, 0x25, 0x88, 0xe1, 0x64, 0x21, 0x45,
-	0x3d, 0x98, 0x07, 0x71, 0x79, 0x47, 0x4a, 0x04, 0xae, 0x04, 0x49, 0x52, 0x89, 0x41, 0xc8, 0x8f,
-	0x4b, 0x00, 0xdd, 0x9b, 0x42, 0x0a, 0x70, 0xb5, 0x38, 0x42, 0x00, 0x97, 0x69, 0x06, 0x8c, 0x42,
-	0x1e, 0x5c, 0x7c, 0xa8, 0x61, 0x23, 0x24, 0x07, 0x57, 0x8b, 0x35, 0xd0, 0xf0, 0xb8, 0x4c, 0x10,
-	0x23, 0x30, 0x91, 0x7c, 0x8a, 0x2b, 0xa0, 0x71, 0x99, 0xe7, 0xa4, 0xc5, 0x25, 0x91, 0x9f, 0x92,
-	0x99, 0x57, 0x5c, 0x90, 0x93, 0x58, 0x9c, 0x9b, 0x58, 0x94, 0x99, 0x96, 0x93, 0x0a, 0x53, 0xe9,
-	0xc4, 0x03, 0x0d, 0xde, 0x00, 0x50, 0xfa, 0x08, 0x60, 0x4c, 0x62, 0x03, 0x27, 0x14, 0x63, 0x40,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0xad, 0x6c, 0x2d, 0x00, 0x39, 0x02, 0x00, 0x00,
+	// 497 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x55, 0x4d, 0x6f, 0xd3, 0x40,
+	0x10, 0xc5, 0x95, 0x68, 0xda, 0xb1, 0x93, 0xc6, 0x13, 0xa7, 0x75, 0x0d, 0x45, 0x25, 0x27, 0xc4,
+	0xa1, 0xb2, 0x40, 0x42, 0x42, 0x42, 0xaa, 0x08, 0x87, 0x70, 0xa8, 0x50, 0x14, 0xc1, 0x0f, 0x30,
+	0xf6, 0x02, 0x96, 0x82, 0x1d, 0xbc, 0x9b, 0x9f, 0xc7, 0x7f, 0x43, 0xde, 0xf5, 0xc7, 0xac, 0x77,
+	0x2d, 0xd4, 0xa3, 0xdf, 0x7c, 0xbc, 0x99, 0xf1, 0x7b, 0x36, 0x4c, 0xab, 0x44, 0xa4, 0xbf, 0x98,
+	0xb8, 0x3b, 0x54, 0xa5, 0x28, 0x71, 0xd2, 0x3c, 0xae, 0x96, 0xb0, 0xf8, 0x54, 0xb1, 0x44, 0xb0,
+	0x07, 0x96, 0xfd, 0x64, 0xd5, 0x8e, 0xfd, 0x39, 0x32, 0x2e, 0x56, 0x01, 0xe0, 0x43, 0xce, 0x85,
+	0x02, 0x79, 0x8b, 0x22, 0xcc, 0x37, 0x4c, 0xe8, 0x99, 0x4b, 0x58, 0x7c, 0x3b, 0x64, 0x46, 0x83,
+	0x10, 0x4e, 0x15, 0x80, 0x33, 0x38, 0xc9, 0xb3, 0xd0, 0xb9, 0x75, 0x5e, 0x9d, 0xef, 0x4e, 0xf2,
+	0xac, 0x6e, 0xad, 0x18, 0x3f, 0x72, 0xce, 0x44, 0x9b, 0xbf, 0x00, 0xbf, 0x26, 0x94, 0x58, 0xc7,
+	0xe7, 0xc3, 0xc5, 0x86, 0x09, 0x2d, 0x2f, 0x00, 0x54, 0x74, 0x1a, 0x7a, 0x05, 0x4f, 0xe5, 0xb3,
+	0x41, 0x76, 0x09, 0x41, 0x43, 0x96, 0xa6, 0xe5, 0xb1, 0x10, 0x64, 0x6a, 0x49, 0xa7, 0x50, 0x4e,
+	0xa6, 0xa8, 0x09, 0xf5, 0xdc, 0x4b, 0x08, 0x1a, 0x4a, 0x1d, 0xbf, 0x86, 0x49, 0x83, 0x18, 0xb4,
+	0x11, 0x84, 0x8a, 0xf6, 0x6b, 0x95, 0x14, 0x3c, 0x49, 0x45, 0x5e, 0x16, 0x7d, 0xd9, 0x55, 0x4d,
+	0x4d, 0x22, 0xbc, 0x5f, 0x63, 0xb9, 0x61, 0xc2, 0x52, 0x13, 0x41, 0xa8, 0x46, 0xb0, 0xc4, 0x6e,
+	0xc0, 0x25, 0xe8, 0x70, 0x94, 0x37, 0x7f, 0xcf, 0x60, 0xb2, 0x53, 0x2f, 0x1b, 0xef, 0xc1, 0xa3,
+	0x2f, 0x1b, 0x9f, 0xdf, 0xb5, 0xaa, 0xb0, 0x68, 0x20, 0xba, 0xe8, 0xa2, 0x0a, 0x5f, 0x3d, 0xc1,
+	0x7b, 0x70, 0x89, 0x2c, 0xf0, 0x59, 0x9f, 0x61, 0x88, 0xc5, 0x52, 0x1e, 0x3b, 0xf8, 0x1e, 0xce,
+	0x3b, 0x05, 0xe1, 0x75, 0x97, 0x31, 0x54, 0x95, 0x9d, 0xdb, 0xa3, 0x42, 0x23, 0xc3, 0x5b, 0xf4,
+	0x67, 0x6b, 0xf0, 0x01, 0x5c, 0x22, 0x3c, 0x32, 0xbc, 0x29, 0xc7, 0x68, 0xd6, 0x05, 0x25, 0x2c,
+	0xab, 0xa1, 0x17, 0x28, 0x46, 0xda, 0xe6, 0x9a, 0x6a, 0xcd, 0xda, 0xd8, 0xc1, 0x77, 0x70, 0xd6,
+	0x2a, 0x19, 0x43, 0xba, 0xf6, 0x7f, 0x59, 0x5d, 0x22, 0x77, 0x32, 0xb3, 0x69, 0x02, 0x4b, 0xf5,
+	0x1a, 0xa6, 0x9a, 0xfa, 0xf1, 0x66, 0xb8, 0xb3, 0xa6, 0xe8, 0x68, 0xde, 0x77, 0x50, 0x01, 0xd9,
+	0xc3, 0xa3, 0x4e, 0x21, 0x67, 0xb7, 0x18, 0xc8, 0xd6, 0x21, 0x76, 0xea, 0xdb, 0xf5, 0xb6, 0x22,
+	0xb7, 0x33, 0xbc, 0x36, 0x32, 0xc1, 0x54, 0xf3, 0x1f, 0xd9, 0xc2, 0xe6, 0x4b, 0x6b, 0x8f, 0x2f,
+	0xe0, 0x1b, 0x86, 0xc4, 0x97, 0x83, 0x6b, 0x98, 0xe6, 0x8a, 0x82, 0x2e, 0x85, 0x04, 0x65, 0xbf,
+	0xf9, 0xd0, 0xc4, 0x78, 0xab, 0x5d, 0xc6, 0xe2, 0xef, 0xb1, 0x6e, 0xb1, 0x83, 0x9f, 0x61, 0xa6,
+	0x3b, 0x1f, 0x5f, 0xd0, 0x2b, 0x3d, 0x6a, 0x32, 0xdf, 0xf8, 0x54, 0x90, 0x4d, 0xc7, 0x3e, 0x23,
+	0x63, 0xfd, 0xd6, 0xaf, 0x21, 0x2c, 0xb3, 0xbc, 0xe0, 0x87, 0x7d, 0xc2, 0x7f, 0x27, 0x55, 0xfe,
+	0x63, 0xcf, 0xda, 0xcc, 0xb5, 0xd7, 0x7c, 0x58, 0xb6, 0xf5, 0x3f, 0x65, 0xeb, 0x7c, 0x3f, 0x95,
+	0x3f, 0x97, 0xb7, 0xff, 0x02, 0x00, 0x00, 0xff, 0xff, 0x36, 0xc3, 0xa0, 0xc4, 0x6d, 0x06, 0x00,
+	0x00,
 }
