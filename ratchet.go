@@ -1,4 +1,4 @@
-package main
+package ratchet
 
 import (
 	"fmt"
@@ -31,11 +31,6 @@ func NewServer() *server {
 		Port:     8080,
 	}
 	return &s
-}
-
-func main() {
-	r := NewServer()
-	r.Serve()
 }
 
 func (s *server) Serve() {
