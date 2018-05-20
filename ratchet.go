@@ -13,7 +13,7 @@ import (
 
 	//"github.com/golang/protobuf/proto"
 
-	pb "github.com/odinsplasmarifle/ratchet/ratchet"
+	pb "github.com/odinsplasmarifle/ratchet/proto"
 )
 
 type server struct {
