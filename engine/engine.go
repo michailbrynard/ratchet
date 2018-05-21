@@ -31,7 +31,7 @@ type Transaction struct {
 	Actions []*Action `db:"actions" json:"actions"`
 }
 
-type Actiion struct {
+type Action struct {
 	Id                     string  `db:"id" json:"id"`
 	Label                  string  `db:"label" json:"label"`
 	Tags                   []*Tag  `db:"tags" json:"tags"`
